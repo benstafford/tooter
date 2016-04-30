@@ -1,5 +1,9 @@
 RSpec.configure do |config|
+  require File.expand_path("../../config/environment", __FILE__)
   require 'capybara/rspec'
+  require 'rspec/rails'
+
+  config.infer_spec_type_from_file_location!
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
@@ -20,8 +24,6 @@ RSpec.configure do |config|
   # the `--only-failures` and `--next-failure` CLI options. We recommend
   # you configure your source control system to ignore this file.
   config.example_status_persistence_file_path = "spec/examples.txt"
-
-  config.disable_monkey_patching!
 
   # Many RSpec users commonly either run the entire suite or an individual
   # file, and it's useful to allow more verbose output when running an
