@@ -6,9 +6,7 @@ feature "User login" do
     visit root_path
     click_on "Login"
 
-    fill_in "Username", with: user.username
-    fill_in "Password", with: user.password
-    click_on "Submit"
+    submit_login_form(user.username, user.password)
 
     expect(current_path).to eq(root_path)
     expect(page).to have_content("Welcome #{user.first_name}!")
@@ -18,9 +16,7 @@ feature "User login" do
     visit root_path
     click_on "Login"
 
-    fill_in "Username", with: "john"
-    fill_in "Password", with: "doe"
-    click_on "Submit"
+    submit_login_form("john", "doe")
 
     expect(page).to have_content("Invalid username or password")
   end

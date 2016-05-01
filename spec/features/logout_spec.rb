@@ -5,9 +5,7 @@ feature "User logout" do
     user = FactoryGirl.create(:user)
     visit root_path
     click_on "Login"
-    fill_in "Username", with: user.username
-    fill_in "Password", with: user.password
-    click_on "Submit"
+    submit_login_form(user.username, user.password)
 
     click_on "Logout"
     expect(page).to have_content("Logged out successfully")

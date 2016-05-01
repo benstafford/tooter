@@ -6,6 +6,8 @@ RSpec.configure do |config|
 
   Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
+  config.include Features, type: :feature
+
   config.infer_spec_type_from_file_location!
 
   config.expect_with :rspec do |expectations|
