@@ -3,6 +3,8 @@ RSpec.configure do |config|
   require 'capybara/rspec'
   require 'rspec/rails'
 
+  Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+
   config.infer_spec_type_from_file_location!
 
   config.expect_with :rspec do |expectations|
