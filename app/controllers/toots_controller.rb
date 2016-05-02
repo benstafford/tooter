@@ -1,8 +1,4 @@
 class TootsController < ApplicationController
-  def index
-    @toots = Toot.all
-  end
-
   def create
     @toot = current_user.toots.build(toot_parameters)
     if @toot.save
