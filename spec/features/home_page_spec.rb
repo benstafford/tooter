@@ -1,7 +1,10 @@
 require 'spec_helper'
 
 feature "Home page" do
-  before { @toot = FactoryGirl.create(:toot) }
+  before do
+    @user = FactoryGirl.create(:user)
+    @toot = FactoryGirl.create(:toot, user: @user) 
+  end
   
   scenario "displays list of toots" do
     visit root_path

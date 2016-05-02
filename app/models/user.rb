@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   validates :password, presence: true, allow_blank: false, confirmation: true
   validates :password_confirmation, presence: true
                         
+  has_many :toots
 end
