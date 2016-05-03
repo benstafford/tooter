@@ -38,17 +38,27 @@ describe 'User' do
       expect(@user.following?(@follower_user)).to be false
     end
   end
-
-  describe "#unfollow!" do
+  
+  context "relationships" do
     before do
       @user = FactoryGirl.create(:user)
-      @followed_user = FactoryGirl.create(:user)
-      @user.followeds << @followed_user
+      @target_user = FactoryGirl.create(:user)
     end
 
-    it "should remove followed relationship" do
-      @user.unfollow!(@followed_user)
-      expect(@user.followeds).to_not include(@follower_user)
+    describe "#follow!" do
+      it "should create a follower relationship" do
+        @user.follow!(@target_user)
+        expect(@user.followeds).to include(@target_user)
+      end
+    end
+
+    describe "#unfollow!" do
+      it "should remove followed relationship" do
+        @user.followeds << @target_user
+        @user.unfollow!(@target_user)
+        @user.followeds.reload
+        expect(@user.followeds).to_not include(@target_user)
+      end
     end
   end
 end

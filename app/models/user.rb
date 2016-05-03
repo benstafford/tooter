@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
     self.followeds.include?(other_user)
   end
 
+  def follow!(other_user)
+    followeds << other_user
+  end
+
   def unfollow!(other_user)
     followed_users.find_by(followed_id: other_user.id).destroy
   end
