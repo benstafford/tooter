@@ -2,7 +2,7 @@ class TootsController < ApplicationController
   def create
     @toot = current_user.toots.build(toot_parameters)
     if @toot.save
-      redirect_to root_path
+      redirect_to user_path(current_user)
     else
       redirect_to root_path, alert: @toot.errors
     end
