@@ -1,4 +1,6 @@
-<% if @user != current_user %>
+<% if current_user.following?(@user) %>
+  <%= link_to "Stop sniffing", user_follower_path(@user, current_user), { method: :delete } %>
+<% else %>
   <%= link_to "Sniff", user_followers_path(@user), { method: :post } %>
 <% end %>
 <ul class="toots">

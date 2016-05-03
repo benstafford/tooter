@@ -7,7 +7,16 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
                         
   has_many :toots
-  has_many :follows, foreign_key: "followed_id"
-  has_many :followers, through: :follows, foreign_key: "followed_id"
-  has_many :followed, through: :follows, foreign_key: "follower_id"
+  has_many :follower_users, class_name: "Follow", foreign_key: "followed_id"
+  has_many :followed_users, class_name: "Follow", foreign_key: "follower_id"
+  has_many :followers, through: :follower_users
+  has_many :followeds, through: :followed_users
+
+  def following?(other_user)
+    self.followeds.include?(other_user)
+  end
+
+  def unfollow!(other_user)
+    followed_users.find_by(followed_id: other_user.id).destroy
+  end
 end
