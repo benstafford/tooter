@@ -7,4 +7,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
                         
   has_many :toots
+  has_many :follows, foreign_key: "followed_id"
+  has_many :followers, through: :follows, foreign_key: "followed_id"
+  has_many :followed, through: :follows, foreign_key: "follower_id"
 end

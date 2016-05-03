@@ -1,3 +1,6 @@
+<% if @user != current_user %>
+  <%= link_to "Sniff", user_followers_path(@user), { method: :post } %>
+<% end %>
 <ul class="toots">
   <% @toots.each do |toot| %>
     <li><%= toot.body %></li>
