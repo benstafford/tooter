@@ -17,4 +17,13 @@ feature "Navigation" do
 
     expect(page).to have_css('.followers li', text: @other_user.first_name)
   end
+
+  scenario "should have a link to view list of users that a user is Smelling (following)" do
+    visit user_path(@user)
+    @user.followeds << @other_user
+
+    click_link "Smelling"
+
+    expect(page).to have_css('.following li', text: @other_user.first_name)
+  end
 end

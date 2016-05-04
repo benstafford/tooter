@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :toots, only: [:create]
   resources :users, only: [:index, :show] do
     resources :followers, only: [:index, :create, :destroy]
+    resources :followings, only: [:index]
   end
 
   root 'users#index'

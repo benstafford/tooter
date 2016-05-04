@@ -4,6 +4,7 @@
   <%= link_to "Sniff", user_followers_path(@user), { method: :post } %>
 <% end %>
 <%= link_to "Sniffers", user_followers_path(@user) %>
+<%= link_to "Smelling", user_followings_path(@user) %>
 <ul class="toots">
   <% @toots.each do |toot| %>
     <li><%= toot.body %></li>
