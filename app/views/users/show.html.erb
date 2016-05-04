@@ -1,8 +1,9 @@
 <% if current_user.following?(@user) %>
   <%= link_to "Stop sniffing", user_follower_path(@user, current_user), { method: :delete } %>
-<% else %>
+<% elsif current_user != @user %>
   <%= link_to "Sniff", user_followers_path(@user), { method: :post } %>
 <% end %>
+<%= link_to "Sniffers", user_followers_path(@user) %>
 <ul class="toots">
   <% @toots.each do |toot| %>
     <li><%= toot.body %></li>
