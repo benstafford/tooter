@@ -9,7 +9,7 @@ feature "Home page" do
   scenario "displays list of toots" do
     visit root_path
     
-    expect(page).to have_css 'ul.toots'
+    expect(page).to have_css 'div.toots'
     expect(page).to have_content @toot.body
   end
 end

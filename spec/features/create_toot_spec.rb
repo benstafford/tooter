@@ -12,7 +12,7 @@ describe "User creates toot" do
     sign_in(user)
       
     visit root_path
-    fill_in "Body", with: "This is my first toot!"
+    fill_in "toot_body", with: "This is my first toot!"
     
     expect { click_on "Submit" }.to change(Toot, :count).by(1)
 

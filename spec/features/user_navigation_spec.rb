@@ -15,7 +15,7 @@ feature "Navigation" do
     
     click_link "Sniffers"
 
-    expect(page).to have_css('.followers li', text: @other_user.first_name)
+    expect(page).to have_css('.panel-body', text: @other_user.first_name)
   end
 
   scenario "should have a link to view list of users that a user is Smelling (following)" do
@@ -24,6 +24,6 @@ feature "Navigation" do
 
     click_link "Smelling"
 
-    expect(page).to have_css('.following li', text: @other_user.first_name)
+    expect(page).to have_css('.panel-body', text: @other_user.first_name)
   end
 end

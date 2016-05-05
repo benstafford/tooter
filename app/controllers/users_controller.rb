@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @toots = Toot.all
+    @toots = Toot.all.order("created_at desc")
   end
 
   def show

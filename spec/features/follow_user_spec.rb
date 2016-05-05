@@ -12,7 +12,7 @@ feature "Follows" do
     click_link "Sniff"
 
     visit user_followers_path(@tooter)
-    expect(page).to have_css('.followers li', text: @user.first_name)
+    expect(page).to have_css('.followers div', text: @user.first_name)
   end
 
   scenario "user should be able to unfollow a followed user" do
@@ -21,6 +21,6 @@ feature "Follows" do
     click_link "Stop sniffing"
 
     visit user_followers_path(@tooter)
-    expect(page).to_not have_css('.followers li', text: @user.first_name)
+    expect(page).to_not have_css('.followers div', text: @user.first_name)
   end
 end

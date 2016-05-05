@@ -8,6 +8,7 @@ gem 'active_model_serializers', '0.10.0.rc2'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 gem 'sass-rails', '~> 5.0'
+gem "twitter-bootstrap-rails"
 gem 'uglifier', '>= 1.3.0'
 
 

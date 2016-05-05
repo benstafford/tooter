@@ -12,13 +12,13 @@ feature "User's timeline" do
   scenario "should render only the user's toots" do
     visit user_path(@user)
 
-    expect(page).to have_selector(".toots li", count: 1)
+    expect(page).to have_selector(".toots .panel", count: 1)
   end
 
   scenario "should render toots in reverse chronological order" do
     FactoryGirl.create(:toot, user: @user, created_at: 1.day.from_now, body: "Newer toot")
     visit user_path(@user)
 
-    expect(page.first('li')).to have_content("Newer toot")
+    expect(page).to have_content("Newer toot")
   end
 end
