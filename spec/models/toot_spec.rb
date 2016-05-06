@@ -21,4 +21,23 @@ describe 'Toot' do
       expect(@toot.valid?).to be false
     end
   end
+
+  describe '#favorite_for' do
+    it "returns true if supplied user argument has favorited the toot" do
+      @toot.favorites.create(user: @user)
+      expect(@toot.favorite_for?(@user)).to be true
+    end
+
+    it "returns false if supplied user argument has not favorited the toot" do
+      expect(@toot.favorite_for?(@user)).to be false
+    end
+  end
+
+  describe '#favorite_count' do
+    it "returns count of times a toot has been favorited" do
+      expect(@toot.favorite_count).to eq(0)
+      @toot.favorites.create(user: @user)
+      expect(@toot.favorite_count).to eq(1)
+    end
+  end
 end
