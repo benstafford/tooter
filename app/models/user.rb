@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
   has_many :followeds, through: :followed_users
   has_many :favorites
 
+  def feed
+    Toot.where("user_id = ? or user_id in (?)", id, following_ids).order("created_at desc")
+  end
+
   def following?(other_user)
     self.followeds.include?(other_user)
   end
@@ -24,5 +28,11 @@ class User < ActiveRecord::Base
 
   def unfollow!(other_user)
     followed_users.find_by(followed_id: other_user.id).destroy
+  end
+
+  private
+
+  def following_ids
+    followeds.pluck("id")
   end
 end

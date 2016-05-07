@@ -9,7 +9,7 @@ describe "Favorites" do
   end
 
   scenario "can be created by a user for any toot" do
-    visit root_path
+    visit user_path(@toot_user)
 
     click_on "Favorite"
 
