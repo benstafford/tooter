@@ -7,6 +7,8 @@ RSpec.configure do |config|
   Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
   config.include Features, type: :feature
+  config.include Requests::JsonHelpers, type: :request
+  config.include ApiHelper, :type => :request
 
   config.infer_spec_type_from_file_location!
 

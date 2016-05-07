@@ -6,6 +6,7 @@ gem 'pg'
 
 gem 'active_model_serializers', '0.10.0.rc2'
 gem 'bcrypt', '~> 3.1.7'
+gem 'has_secure_token'
 gem 'jquery-rails'
 gem 'sass-rails', '~> 5.0'
 gem "twitter-bootstrap-rails"
@@ -17,6 +18,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry'
   gem 'pry-rails'
+  gem "rack-test", require: "rack/test"
   gem 'rspec-rails'
   gem 'spring'
 end

@@ -3,6 +3,12 @@ require 'spec_helper'
 describe 'User' do
   before { @user = FactoryGirl.build(:user) }
 
+  describe 'attributes' do
+    subject { User.new }
+
+    it { should respond_to(:auth_token) }
+  end
+
   describe 'validations' do
     it "should be valid for factory object" do
       expect(@user.valid?).to be true

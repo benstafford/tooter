@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
+  has_secure_token :auth_token
 
   validates :first_name, presence: true, allow_blank: false
   validates :username, presence: true, allow_blank: false

@@ -12,5 +12,12 @@ Rails.application.routes.draw do
   end
   get "sign_up" => "users#new", as: :sign_up
 
+  namespace :api do
+    namespace :v1 do
+      resource :sessions, only: [:create]
+      post "login" => "sessions#create"
+    end
+  end
+
   root 'users#index'
 end
