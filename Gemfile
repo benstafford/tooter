@@ -17,6 +17,7 @@ group :development, :test do
   gem 'byebug'
   gem 'factory_girl_rails'
   gem 'pry'
+  gem 'pry-nav'
   gem 'pry-rails'
   gem "rack-test", require: "rack/test"
   gem 'rspec-rails'
