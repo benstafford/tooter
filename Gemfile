@@ -4,7 +4,7 @@ ruby '2.2.1'
 gem 'rails', '4.2.6'
 gem 'pg'
 
-gem 'active_model_serializers', '0.10.0.rc2'
+gem 'active_model_serializers', '0.10.0.rc5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'has_secure_token'
 gem 'jquery-rails'

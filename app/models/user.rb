@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
 
   validates :first_name, presence: true, allow_blank: false
   validates :username, presence: true, allow_blank: false
-  validates :password, presence: true, allow_blank: false, confirmation: true
-  validates :password_confirmation, presence: true
+  validates :password, presence: true, allow_blank: false, confirmation: true, on: :create
+  validates :password_confirmation, presence: true, on: :create
                         
   has_many :toots
   has_many :follower_users, class_name: "Follow", foreign_key: "followed_id"
