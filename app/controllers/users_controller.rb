@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @toots = Toot.all.order("created_at desc")
+    @toots = Toot.all_ordered
   end
 
   def show
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if current_user == @user
       @toots = @user.feed
     else
-      @toots = Toot.where(user: @user).order("created_at desc")
+      @toots = Toot.only_for(@user) 
     end
   end
 
