@@ -106,6 +106,7 @@ GEM
     pry-rails (0.3.3)
       pry (>= 0.9.10)
     rack (1.6.4)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.6)
@@ -203,6 +204,7 @@ DEPENDENCIES
   pry
   pry-nav
   pry-rails
+  rack-cors
   rack-test
   rails (= 4.2.6)
   rails_12factor

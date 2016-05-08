@@ -8,6 +8,7 @@ gem 'active_model_serializers', '0.10.0.rc5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'has_secure_token'
 gem 'jquery-rails'
+gem 'rack-cors', :require => 'rack/cors'
 gem 'sass-rails', '~> 5.0'
 gem "twitter-bootstrap-rails"
 gem 'uglifier', '>= 1.3.0'
