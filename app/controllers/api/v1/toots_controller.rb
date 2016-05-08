@@ -18,6 +18,6 @@ class Api::V1::TootsController < Api::V1::ApiController
   private
 
   def toot_params
-    params.require(:toot).permit(:body)
+    ActiveModelSerializers::Deserialization.jsonapi_parse(params, only: [:body])
   end
 end
