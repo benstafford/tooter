@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       resource :sessions, only: [:create]
       post "login" => "sessions#create"
       resources :toots, only: [:index]
-      resources :users, only: [:index]
+      resources :users, only: [:index, :show]
     end
   end
 
