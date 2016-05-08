@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resource :sessions, only: [:create]
       post "login" => "sessions#create"
-      resources :toots, only: [:index]
+      resources :toots, only: [:index, :create]
       resources :users, only: [:index, :show]
     end
   end
