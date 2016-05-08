@@ -18,18 +18,11 @@ feature "Home page" do
     expect(page).to have_selector('.toots .panel', count: 3)
   end
 
-  scenario "displays list of toots from users following and own toots when logged in" do
+  scenario "displays list of all toots from all users when logged in" do
     @user.followeds << @second_user
     sign_in(@user)
     visit root_path
    
-    expect(page).to have_selector('.toots .panel', count: 2)
+    expect(page).to have_selector('.toots .panel', count: 3)
   end
-
-  scenario "displays list of own toots when not following anyone and logged in" do
-    sign_in(@user)
-    visit root_path
-
-    expect(page).to have_selector('.toots .panel', count: 1)
-  end
-end
+ end

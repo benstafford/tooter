@@ -1,15 +1,11 @@
 class UsersController < ApplicationController
   def index
-    if current_user
-      @toots = current_user.feed 
-    else
-      @toots = Toot.all.order("created_at desc")
-    end
+    @toots = Toot.all.order("created_at desc")
   end
 
   def show
     @user = User.find(params[:id])
-    @toots = @user.toots.order("created_at desc")
+    @toots = @user.feed
   end
 
   def new
