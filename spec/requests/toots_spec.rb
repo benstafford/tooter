@@ -12,6 +12,6 @@ describe "Toots Endpoint" do
     get "/api/v1/toots", as: :json
     
     expect(last_response.status).to eq(200)
-    expect(json.size).to eq(2)
+    expect(json["data"].size).to eq(2)
   end
 end

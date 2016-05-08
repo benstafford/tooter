@@ -16,7 +16,7 @@ describe "Authentication" do
     end
 
     it "responds with token" do
-      expect(json["auth_token"]).to eq(@user.auth_token)
+      expect(json["data"]["attributes"]["auth-token"]).to eq(@user.auth_token)
     end
   end
 
@@ -31,7 +31,7 @@ describe "Authentication" do
     before do
       authorize(@user.username, @user.password)
       post "/api/v1/login", as: :json
-      @auth_token = json["auth_token"]
+      @auth_token = json["data"]["attributes"]["auth-token"]
     end
 
     it "responds with a status of 200 when token supplied" do
