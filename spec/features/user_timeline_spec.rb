@@ -10,10 +10,17 @@ feature "User's timeline" do
     sign_in(@user)
   end
 
-  scenario "should render the users toots and toots from those followed by user" do
+  scenario "should render the users toot stream if user logged in" do
     visit user_path(@user)
 
     expect(page).to have_selector(".toots .panel", count: 2)
+  end
+  
+  scenario "should render only a user's tweets when viewed by another user" do
+    @other_user.followeds << @user
+    visit user_path(@other_user)
+
+    expect(page).to have_selector(".toots .panel", count: 1)
   end
 
   scenario "should render toots in reverse chronological order" do

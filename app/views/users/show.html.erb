@@ -37,14 +37,17 @@
               <h4><%= link_to toot.user.username, user_path(toot.user) %> - <small>Tooted at: <%= toot.created_at.to_formatted_s(:short) %></small></h4>
             </div>
             <div class="panel-body">
-              <% if current_user %>
-                <% if toot.favorite_for?(current_user) %>
-                  Favorited!
-                <% else %>
-                  <%= link_to "Favorite", toot_favorites_path(toot), { method: :post } %>
-                <% end %>
-              <% end %>
               <%= toot.body %> 
+              <div style="float:right">
+                <% if current_user %>
+                  <% if toot.favorite_for?(current_user) %>
+                    Favorited!
+                  <% else %>
+                    <%= link_to "Favorite", toot_favorites_path(toot), { method: :post } %>
+                  <% end %>
+                <% end %>
+                | Favorited <%= toot.favorite_count %> times
+              </div>
             </div>
           </div>
         <% end %>
