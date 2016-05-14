@@ -37,7 +37,7 @@
               <h4><%= link_to toot.user.username, user_path(toot.user) %> - <small>Tooted at: <%= toot.created_at.to_formatted_s(:short) %></small></h4>
             </div>
             <div class="panel-body">
-              <%= toot.body %> 
+              <%= toot.body_with_links %> 
               <div style="float:right">
                 <% if current_user %>
                   <% if toot.favorite_for?(current_user) %>

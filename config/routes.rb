@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :new, :create] do
     resources :followers, only: [:index, :create, :destroy]
     resources :followings, only: [:index]
+    resources :mentions, only: [:index]
   end
   get "sign_up" => "users#new", as: :sign_up
 

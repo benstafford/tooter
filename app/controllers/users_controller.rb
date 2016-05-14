@@ -6,10 +6,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     if current_user == @user
-      @toots = @user.feed
+      toots = @user.feed
     else
-      @toots = Toot.only_for(@user) 
+      toots = Toot.only_for(@user) 
     end
+    @toots = toots.map { |toot| TootPresenter.new(toot) }
   end
 
   def new

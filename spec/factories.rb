@@ -3,6 +3,7 @@ FactoryGirl.define do
     follower_id 1
     followed_id 1
   end
+
   factory :user do
     first_name "Pepe"
     username "pepe"
@@ -12,5 +13,11 @@ FactoryGirl.define do
 
   factory :toot do
     body "This is my first toot!"
+    user
+  end
+
+  factory :mention do
+    user
+    toot
   end
 end

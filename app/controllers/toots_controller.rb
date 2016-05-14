@@ -1,6 +1,6 @@
 class TootsController < ApplicationController
   def create
-    @toot = current_user.toots.build(toot_parameters)
+    @toot = CreateTootUseCase.run(current_user, toot_parameters)
     if @toot.save
       redirect_to user_path(current_user)
     else

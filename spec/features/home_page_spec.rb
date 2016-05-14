@@ -25,4 +25,13 @@ feature "Home page" do
    
     expect(page).to have_selector('.toots .panel', count: 3)
   end
+
+  scenario "displays link to view mentions" do
+    sign_in(@user)
+    visit root_path
+  
+    expect(page).to have_content("Mentions")
+    click_link "Mentions"
+    expect(page).to have_selector('.mentions')
+  end
  end
